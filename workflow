@@ -17,7 +17,8 @@ conda create -n seq_align -c bioconda
 configfile: "config.yaml"
 SAMPLES=config["samples"]
 rule all:
-    input:  
+    input: 
+        "QC/metrics_summary.py",
         expand("{sample}.R{read_no}.fastq.gz", sample=SAMPLES, read_no=['1', '2'])
 # trimming adaptors
 rule trim: 
